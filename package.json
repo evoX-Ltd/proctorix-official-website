@@ -1,0 +1,42 @@
+{
+  "name": "proctorix-official-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
+  },
+  "dependencies": {
+    "@next/eslint-plugin-next": "^15.3.2",
+    "babel-plugin-react-compiler": "19.1.0-rc.2",
+    "next": "15.3.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tanstack/eslint-plugin-query": "^5.78.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@typescript-eslint/parser": "^8.32.1",
+    "@unocss/eslint-config": "^66.1.2",
+    "@unocss/webpack": "^66.1.2",
+    "eslint": "^9.27.0",
+    "eslint-config-canonical": "^44.9.5",
+    "eslint-config-next": "15.3.2",
+    "eslint-plugin-lingui": "^0.10.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "6.0.0-rc.1",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-sonarjs": "^3.0.2",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "typescript": "^5",
+    "typescript-eslint": "^8.32.1",
+    "unocss": "^66.1.2"
+  }
+}
