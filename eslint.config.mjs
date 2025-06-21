@@ -48,7 +48,7 @@ export default tseslint.config(
       "**/unimport.d.ts",
       ".next/**",
       "node_modules/**",
-      // "**/src/locales",
+      // "**/app/locales",
       // "**/scripts/sort-untranslated.js",
     ],
   },
