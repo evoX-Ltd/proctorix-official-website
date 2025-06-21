@@ -45,6 +45,12 @@ importers:
       '@unocss/eslint-config':
         specifier: ^66.1.2
         version: 66.1.2(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)
+      '@unocss/postcss':
+        specifier: ^66.2.3
+        version: 66.2.3(postcss@8.5.3)
+      '@unocss/reset':
+        specifier: ^66.2.3
+        version: 66.2.3
       '@unocss/webpack':
         specifier: ^66.1.2
         version: 66.1.2(webpack@5.99.9)
@@ -1049,8 +1055,15 @@ packages:
     resolution: {integrity: sha512-2sQXj+Qaq4RVDELVTPoXMggZ30g1WKHeCuur396I12Ab0HgAR6bTc/DIrNtqKVHFI3mmlvP1oM1ynhKWSKPsTg==}
     engines: {node: '>=14'}
 
+  '@unocss/config@66.2.3':
+    resolution: {integrity: sha512-Xd2P1NgD7poYKDMI176yPvmMojBbc1HH26dgG8OYpNiBuzdhdLuyfSLPbpAOXPSyoK8Fu2BikS+NLTWQ8MmgFQ==}
+    engines: {node: '>=14'}
+
   '@unocss/core@66.1.2':
     resolution: {integrity: sha512-mN9h1hHEuhDcdbI4z74o7UnxlBZYVsJpYcdC1YLWBKROcLYTkuyZ7hgBzpo1FBNox2Bt3JnrSinVDmc44Bxjow==}
+
+  '@unocss/core@66.2.3':
+    resolution: {integrity: sha512-mRpwm3HUAqCtQrBB7+vkCp0qDZT+G1s2EAVJIF6zzrnoqb2BmIlHgz7DXVDufRFMRJtQUCp2jVMtEQZCTXEVjQ==}
 
   '@unocss/eslint-config@66.1.2':
     resolution: {integrity: sha512-lQSfuZuq9DRNyR4d9j3jQHSZRhNbQpSBXUGAjWz6QMlLcDIqTN3JvtOGDRVH0t7VVvlhZcln1t4d1jfJORlY5w==}
@@ -1068,6 +1081,12 @@ packages:
 
   '@unocss/postcss@66.1.2':
     resolution: {integrity: sha512-RCA3or1qBdRVduNW73xdeiFDCEb8cvcGKsHSN66rL66RrlzNnunE4NE55vbI+yoArTRZ7RdUnxq1KuXKjrJbYw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      postcss: ^8.4.21
+
+  '@unocss/postcss@66.2.3':
+    resolution: {integrity: sha512-OVPpXvh0RluVws5T1kupWTH5mfh7DjKQeW41lV8lV845HLDEdiq5ABaKsIQ8eXKVzo/scWje/s2C/lZObMoSZw==}
     engines: {node: '>=14'}
     peerDependencies:
       postcss: ^8.4.21
@@ -1105,8 +1124,15 @@ packages:
   '@unocss/reset@66.1.2':
     resolution: {integrity: sha512-njNy/QCpuPKBFeEvhYGwwCe3t8R8JTxONsyUB9NsFOamkF13DSlEB4Yy/QLQfIinbbmx0F/wiej/JGOJk1ecDg==}
 
+  '@unocss/reset@66.2.3':
+    resolution: {integrity: sha512-szULFXX4IvNMQ+HKbu9p0KVME2pVhZBh9zQ1CSqA/TV9s2DRVMbNO5nVYjjBDkTnvr6N4IgWEGFVK+XVVITJRQ==}
+
   '@unocss/rule-utils@66.1.2':
     resolution: {integrity: sha512-nn0ehvDh7yyWq2mcBDLVpmMAivjRATUroZ8ETinyN1rmfsGesm71R0d1gV3K+Z6YC7a3+dMLc+/qzI7VK3AG/Q==}
+    engines: {node: '>=14'}
+
+  '@unocss/rule-utils@66.2.3':
+    resolution: {integrity: sha512-OL4s4pTb/YD66OK2b7NavwSqGTn5cDBaafkLphqnXKe9/DUfGoWNmeUAHfSzvM1QelprRXtPNLK/GIfUjcsNMg==}
     engines: {node: '>=14'}
 
   '@unocss/transformer-attributify-jsx@66.1.2':
@@ -4819,7 +4845,14 @@ snapshots:
       '@unocss/core': 66.1.2
       unconfig: 7.3.2
 
+  '@unocss/config@66.2.3':
+    dependencies:
+      '@unocss/core': 66.2.3
+      unconfig: 7.3.2
+
   '@unocss/core@66.1.2': {}
+
+  '@unocss/core@66.2.3': {}
 
   '@unocss/eslint-config@66.1.2(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
@@ -4862,6 +4895,15 @@ snapshots:
       '@unocss/config': 66.1.2
       '@unocss/core': 66.1.2
       '@unocss/rule-utils': 66.1.2
+      css-tree: 3.1.0
+      postcss: 8.5.3
+      tinyglobby: 0.2.14
+
+  '@unocss/postcss@66.2.3(postcss@8.5.3)':
+    dependencies:
+      '@unocss/config': 66.2.3
+      '@unocss/core': 66.2.3
+      '@unocss/rule-utils': 66.2.3
       css-tree: 3.1.0
       postcss: 8.5.3
       tinyglobby: 0.2.14
@@ -4923,9 +4965,16 @@ snapshots:
 
   '@unocss/reset@66.1.2': {}
 
+  '@unocss/reset@66.2.3': {}
+
   '@unocss/rule-utils@66.1.2':
     dependencies:
       '@unocss/core': 66.1.2
+      magic-string: 0.30.17
+
+  '@unocss/rule-utils@66.2.3':
+    dependencies:
+      '@unocss/core': 66.2.3
       magic-string: 0.30.17
 
   '@unocss/transformer-attributify-jsx@66.1.2':

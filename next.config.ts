@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   },
   // Alias (like your Vite config)
   webpack: (config) => {
-    config.resolve.alias["@"] = path.resolve(__dirname, "src");
+    config.resolve.alias["@"] = path.resolve(__dirname, "app");
     config.plugins.push(UnoCSS());
     return config;
   },

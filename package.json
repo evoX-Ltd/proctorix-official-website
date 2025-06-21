@@ -25,6 +25,8 @@
     "@types/react-dom": "^19",
     "@typescript-eslint/parser": "^8.32.1",
     "@unocss/eslint-config": "^66.1.2",
+    "@unocss/postcss": "^66.2.3",
+    "@unocss/reset": "^66.2.3",
     "@unocss/webpack": "^66.1.2",
     "eslint": "^9.27.0",
     "eslint-config-canonical": "^44.9.5",
