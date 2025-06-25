@@ -47,7 +47,6 @@ export default tseslint.config(
       "**/unimport.d.ts",
       ".next/**",
       "node_modules/**",
-      // "**/app/locales",
       // "**/scripts/sort-untranslated.js",
     ],
   },
@@ -99,6 +98,7 @@ export default tseslint.config(
       "@tanstack/query/mutation-property-order": "off",
 
       "react/no-unknown-property": "off",
+      "react/jsx-no-bind": "off",
       // Add any specific react-hooks rule overrides if needed
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
