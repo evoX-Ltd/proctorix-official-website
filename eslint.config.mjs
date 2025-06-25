@@ -8,21 +8,20 @@ import tailwind from "eslint-plugin-tailwindcss";
 import reactPlugin from "eslint-plugin-react";
 import unocss from "@unocss/eslint-config/flat";
 import pluginQuery from "@tanstack/eslint-plugin-query";
-import pluginLingui from "eslint-plugin-lingui";
-import nextjs from "@next/eslint-plugin-next";
+// import nextjs from "@next/eslint-plugin-next";
 
 export default tseslint.config(
   // Base Next.js recommended config
   {
     files: ["**/*.{ts,tsx}"],
-    plugins: {
-      "@next/next": nextjs,
-    },
-    rules: {
-      ...nextjs.configs.recommended.rules,
-      ...nextjs.configs["core-web-vitals"].rules,
-      "@next/next/no-html-link-for-pages": ["error", "app/"], // Adjust if using pages directory
-    },
+    // plugins: {
+    //   "@next/next": nextjs,
+    // },
+    // rules: {
+    //   ...nextjs.configs.recommended.rules,
+    //   ...nextjs.configs["core-web-vitals"].rules,
+    //   "@next/next/no-html-link-for-pages": ["error", "app/"], // Adjust if using pages directory
+    // },
   },
 
   // Canonical config with react-hooks removed
@@ -77,7 +76,6 @@ export default tseslint.config(
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
       "@unocss": unocss.plugins.unocss,
-      lingui: pluginLingui,
     },
     rules: {
       "@stylistic/semi": "off",
@@ -128,12 +126,6 @@ export default tseslint.config(
       "sonarjs/pseudo-random": "off",
       "sonarjs/todo-tag": "warn",
       "@unocss/blocklist": "error",
-      "lingui/no-unlocalized-strings": "off",
-      "lingui/t-call-in-function": 2,
-      "lingui/no-single-variables-to-translate": 2,
-      "lingui/no-expression-in-message": "off",
-      "lingui/no-single-tag-to-translate": 2,
-      "lingui/no-trans-inside-trans": 2,
     },
     settings: {
       react: {
