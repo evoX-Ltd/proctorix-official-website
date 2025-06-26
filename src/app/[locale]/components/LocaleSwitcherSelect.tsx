@@ -1,27 +1,29 @@
 "use client";
 
 import { usePathname, useRouter } from "@/i18n/navigation";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  type SelectChangeEvent,
+} from "@mui/material";
 import { type Locale } from "next-intl";
 import { useParams } from "next/navigation";
-import { type ChangeEvent, type ReactNode, useTransition } from "react";
+import { useTransition } from "react";
 
 type Props = {
-  readonly children: ReactNode;
   readonly defaultValue: string;
   readonly label: string;
 };
 
-export default function LocaleSwitcherSelect({
-  children,
-  defaultValue,
-  label,
-}: Props) {
+export default function LocaleSwitcherSelect({ defaultValue, label }: Props) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
   const parameters = useParams();
 
-  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+  function onSelectChange(event: SelectChangeEvent) {
     const nextLocale = event.target.value as Locale;
     startTransition(() => {
       router.replace(
@@ -35,17 +37,17 @@ export default function LocaleSwitcherSelect({
   }
 
   return (
-    <label>
-      <p className="sr-only">{label}</p>
-      <select
-        className="inline-flex appearance-none bg-transparent py-3 pl-2 pr-6"
-        defaultValue={defaultValue}
+    <FormControl>
+      <InputLabel>{label}</InputLabel>
+      <Select
         disabled={isPending}
+        label={label}
         onChange={onSelectChange}
+        value={defaultValue}
       >
-        {children}
-      </select>
-      <span className="pointer-events-none absolute right-2 top-[8px]">⌄</span>
-    </label>
+        <MenuItem value="en">English</MenuItem>
+        <MenuItem value="ar">العربية</MenuItem>
+      </Select>
+    </FormControl>
   );
 }

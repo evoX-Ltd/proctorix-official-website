@@ -9,10 +9,7 @@ export default function HomePage() {
     <div>
       <h1>{t("title")}</h1>
       <Link href="/about">{t("about")}</Link>
-      <LocaleSwitcherSelect defaultValue={locale} label={t("language")}>
-        <option value="en">English</option>
-        <option value="ar">Arabic</option>
-      </LocaleSwitcherSelect>
+      <LocaleSwitcherSelect defaultValue={locale} label={t("language")} />
     </div>
   );
 }

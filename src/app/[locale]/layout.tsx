@@ -1,10 +1,20 @@
 import { routing } from "@/i18n/routing";
-import { type Metadata } from "next";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
+import theme from "@/theme";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { ThemeProvider } from "@mui/material/styles";
 import "@unocss/reset/tailwind.css";
 import "../../styles/globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
+import { type Metadata } from "next";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import { notFound } from "next/navigation";
+
+const roboto = Roboto({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  weight: ["300", "400", "500", "700"],
+});
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -46,9 +56,17 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html dir={locale === "ar" ? "rtl" : "ltr"} lang={locale}>
+    <html
+      className={roboto.variable}
+      dir={locale === "ar" ? "rtl" : "ltr"}
+      lang={locale}
+    >
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
