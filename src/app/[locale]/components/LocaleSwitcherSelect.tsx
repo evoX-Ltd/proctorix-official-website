@@ -8,16 +8,13 @@ import {
   Select,
   type SelectChangeEvent,
 } from "@mui/material";
-import { type Locale } from "next-intl";
+import { type Locale, useLocale, useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { useTransition } from "react";
 
-type Props = {
-  readonly defaultValue: string;
-  readonly label: string;
-};
-
-export default function LocaleSwitcherSelect({ defaultValue, label }: Props) {
+export default function LocaleSwitcherSelect() {
+  const t = useTranslations("HomePage");
+  const locale = useLocale();
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
@@ -38,12 +35,12 @@ export default function LocaleSwitcherSelect({ defaultValue, label }: Props) {
 
   return (
     <FormControl>
-      <InputLabel>{label}</InputLabel>
+      <InputLabel>{t("language")}</InputLabel>
       <Select
         disabled={isPending}
-        label={label}
+        label={t("language")}
         onChange={onSelectChange}
-        value={defaultValue}
+        value={locale}
       >
         <MenuItem value="en">English</MenuItem>
         <MenuItem value="ar">العربية</MenuItem>

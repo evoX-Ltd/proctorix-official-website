@@ -1,3 +1,4 @@
+import { colors } from "@mui/material";
 import {
   defineConfig,
   presetIcons,
@@ -7,6 +8,9 @@ import {
 
 export default defineConfig({
   theme: {
+    colors: {
+      primary: "var(--mui-palette-primary-main)",
+    },
     spacing: {
       none: "0", // 0px - 0
       xs: "0.25rem", // 4px - 1

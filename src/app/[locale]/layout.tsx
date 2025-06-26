@@ -1,9 +1,10 @@
 import { routing } from "@/i18n/routing";
 import theme from "@/theme";
+import { InitColorSchemeScript } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { ThemeProvider } from "@mui/material/styles";
 import "@unocss/reset/tailwind.css";
 import "../../styles/globals.css";
+import { ThemeProvider } from "@mui/material/styles";
 import { type Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
@@ -67,8 +68,10 @@ export default async function LocaleLayout({
       className={roboto.variable}
       dir={locale === "ar" ? "rtl" : "ltr"}
       lang={locale}
+      suppressHydrationWarning
     >
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <InitColorSchemeScript />
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <NextIntlClientProvider>{children}</NextIntlClientProvider>

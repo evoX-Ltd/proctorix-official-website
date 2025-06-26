@@ -1,15 +1,18 @@
 import LocaleSwitcherSelect from "./components/LocaleSwitcherSelect";
+import ThemeToggler from "./components/ThemeToggler";
 import { Link } from "@/i18n/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { Card } from "@mui/material";
+import { useTranslations } from "next-intl";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");
-  const locale = useLocale();
+
   return (
-    <div>
+    <Card>
       <h1>{t("title")}</h1>
       <Link href="/about">{t("about")}</Link>
-      <LocaleSwitcherSelect defaultValue={locale} label={t("language")} />
-    </div>
+      <ThemeToggler />
+      <LocaleSwitcherSelect />
+    </Card>
   );
 }
