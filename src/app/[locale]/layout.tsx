@@ -42,6 +42,13 @@ export async function generateMetadata({
   };
 }
 
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export const generateStaticParams = async () => {
+  return routing.locales.map((locale) => ({
+    locale,
+  }));
+};
+
 export default async function LocaleLayout({
   children,
   params,
