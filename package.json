@@ -11,11 +11,7 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
-    "@emotion/cache": "^11.14.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/material": "^7.1.2",
-    "@mui/material-nextjs": "^7.1.1",
+    "@iconify/react": "^6.0.0",
     "@next/eslint-plugin-next": "^15.3.2",
     "babel-plugin-react-compiler": "19.1.0-rc.2",
     "next": "15.3.2",
