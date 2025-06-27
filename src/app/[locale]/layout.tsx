@@ -1,5 +1,4 @@
 import { routing } from "@/i18n/routing";
-import "@unocss/reset/tailwind.css";
 import "../../styles/globals.css";
 import { type Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";

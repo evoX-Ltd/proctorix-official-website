@@ -6,7 +6,6 @@ import auto from "eslint-config-canonical/auto";
 import sonar from "eslint-plugin-sonarjs";
 import tailwind from "eslint-plugin-tailwindcss";
 import reactPlugin from "eslint-plugin-react";
-import unocss from "@unocss/eslint-config/flat";
 import pluginQuery from "@tanstack/eslint-plugin-query";
 // import nextjs from "@next/eslint-plugin-next";
 
@@ -74,7 +73,6 @@ export default tseslint.config(
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
-      "@unocss": unocss.plugins.unocss,
     },
     rules: {
       "@stylistic/semi": "off",
@@ -125,7 +123,6 @@ export default tseslint.config(
       "sonarjs/no-nested-conditional": "off",
       "sonarjs/pseudo-random": "off",
       "sonarjs/todo-tag": "warn",
-      "@unocss/blocklist": "error",
     },
     settings: {
       react: {
