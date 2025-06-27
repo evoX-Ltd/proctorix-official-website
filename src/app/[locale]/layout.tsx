@@ -1,5 +1,6 @@
 import { routing } from "@/i18n/routing";
 import "../../styles/globals.css";
+import { ThemeProvider } from "@/providers/theme-provider";
 import { type Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
@@ -66,7 +67,14 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          disableTransitionOnChange
+          enableSystem
+        >
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

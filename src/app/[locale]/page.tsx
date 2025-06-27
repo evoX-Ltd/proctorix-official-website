@@ -1,6 +1,8 @@
 import LocaleSwitcherSelect from "./components/LocaleSwitcherSelect";
-import ThemeToggler from "./components/ThemeToggler";
+import { ModeToggle } from "./components/ModeToggle";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import { CircleChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function HomePage() {
@@ -8,10 +10,12 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>{t("title")}</h1>
+      <h1 className="bg-primary">{t("title")}</h1>
       <Link href="/about">{t("about")}</Link>
-
-      <ThemeToggler />
+      <Button size="sm" variant="outline">
+        <CircleChevronRight /> New Branch
+      </Button>
+      <ModeToggle />
       <LocaleSwitcherSelect />
     </div>
   );

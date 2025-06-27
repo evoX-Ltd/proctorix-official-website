@@ -1,9 +1,21 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { type Locale, useLocale, useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
 import { useTransition } from "react";
+import * as React from "react";
+
+const SUPPORTED_LOCALES: Locale[] = ["en", "ar"];
 
 export default function LocaleSwitcherSelect() {
   const t = useTranslations("HomePage");
@@ -11,22 +23,31 @@ export default function LocaleSwitcherSelect() {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
-  const parameters = useParams();
 
-  // function onSelectChange(event: SelectChangeEvent) {
-  //   const nextLocale = event.target.value as Locale;
-  //   startTransition(() => {
-  //     router.replace(
-  //       // @ts-expect-error -- TypeScript will validate that only known `params`
-  //       // are used in combination with a given `pathname`. Since the two will
-  //       // always match for the current route, we can skip runtime checks.
-  //       { params: parameters, pathname },
-  //       { locale: nextLocale }
-  //     );
-  //   });
-  // }
+  function onLocaleChange(nextLocale: string) {
+    startTransition(() => {
+      router.replace({ pathname }, { locale: nextLocale as Locale });
+    });
+  }
 
   return (
-   
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button disabled={isPending} variant="default">
+          {t("language")}
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>{t("language")}</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuRadioGroup onValueChange={onLocaleChange} value={locale}>
+          {SUPPORTED_LOCALES.map((loc) => (
+            <DropdownMenuRadioItem key={loc} value={loc}>
+              {loc.toUpperCase()}
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
