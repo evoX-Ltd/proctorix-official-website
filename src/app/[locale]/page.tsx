@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { CircleChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Footer from "./components/Footer";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");
@@ -16,6 +17,7 @@ export default function HomePage() {
         <CircleChevronRight /> New Branch
       </Button>
       <ModeToggle />
+      <Footer />
       <LocaleSwitcherSelect />
     </div>
   );
