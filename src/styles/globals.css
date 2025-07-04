@@ -3,6 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  /* Default browser font size is 16px. making 1rem equal to 15px */
+  font-size: 93.75%; /* 15px / 16px = 0.9375 or 93.75% */
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
